@@ -6,7 +6,11 @@ public class puzzle : MonoBehaviour {
 	private Vector3 pos;
 	private float posY;
 	private GameObject puzzleNumbers1;
+<<<<<<< HEAD
 	private float indexNumber = 1;
+=======
+	private float indexNumber = 0;
+>>>>>>> origin/Branch_Dito
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +26,7 @@ public class puzzle : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit)) {
 				if (hit.transform == GameObject.Find("arrow-up1").transform) {
+<<<<<<< HEAD
 					if ((indexNumber > 1)  && (indexNumber != 0)) {
 						posY -= moveDistance;
 						indexNumber -= 1;
@@ -47,11 +52,34 @@ public class puzzle : MonoBehaviour {
 		}
 		// Moving numbers
 		pos.y = Mathf.Lerp (pos.y, posY, Time.deltaTime * 500f);
+=======
+					if (indexNumber > 0) {
+						posY -= moveDistance;
+						indexNumber -= 1;
+					}
+				} else if (hit.transform == GameObject.Find("arrow-down1").transform) {
+					if (indexNumber < 9) {
+						posY += moveDistance;
+						indexNumber += 1;
+					}
+				}
+
+				//misal passwordnya 0
+				if (indexNumber == 9) {
+					pindahScene();
+				}
+			}
+		}
+
+		// Moving numbers
+		pos.y = Mathf.Lerp (pos.y, posY, Time.deltaTime * 10f);
+>>>>>>> origin/Branch_Dito
 		puzzleNumbers1.transform.position = pos;
 	}
 
 	void pindahScene() {
 		//animasi dll bisa ditambahin disini
+<<<<<<< HEAD
 
 		 // 1 itu scene menu.unity, liat di build setting
 
@@ -70,3 +98,8 @@ public class puzzle : MonoBehaviour {
 	
 
 
+=======
+		Application.LoadLevel (0); // 1 itu scene menu.unity, liat di build setting
+	}
+}
+>>>>>>> origin/Branch_Dito

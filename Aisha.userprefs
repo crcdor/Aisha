@@ -1,8 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PuzzlePlanet.cs">
     <Files>
       <File FileName="Assets\Scripts\PuzzlePlanet.cs" Line="12" Column="28" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TouchCameraControl.cs">
+    <Files>
+      <File FileName="Assets\Scripts\TouchCameraControl.cs" Line="109" Column="15" />
+>>>>>>> origin/Branch_Dito
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -7,7 +7,11 @@ public class StartOptions : MonoBehaviour {
 
 
 
+<<<<<<< HEAD
 	public int sceneToStart = 0;										//Index number in build settings of scene to load if changeScenes is true
+=======
+	public int sceneToStart = 1;										//Index number in build settings of scene to load if changeScenes is true
+>>>>>>> origin/Branch_Dito
 	public bool changeScenes;											//If true, load a new scene when Start is pressed, if false, fade out UI and continue in single scene
 	public bool changeMusicOnStart;										//Choose whether to continue playing menu music or start a new music clip
 	public int musicToChangeTo = 0;										//Array index in array MusicClips to change to if changeMusicOnStart is true.
@@ -74,7 +78,11 @@ public class StartOptions : MonoBehaviour {
 		showPanels.HideMenu ();
 
 		//Load the selected scene, by scene index number in build settings
+<<<<<<< HEAD
 		Application.LoadLevel (2);
+=======
+		Application.LoadLevel (sceneToStart);
+>>>>>>> origin/Branch_Dito
 	}
 
 
