@@ -35,8 +35,8 @@ public class TouchCameraControl : MonoBehaviour
 		
 		_camera = Camera.main;
 		Vector3 startCameraPosition = _camera.transform.position;
-		startCameraPosition.x = 102F;
-		startCameraPosition.y = -26F;
+		startCameraPosition.x = 202f; // 102F;  248f;   
+		startCameraPosition.y = -55f; // -26F; -41.5f;  
 		_camera.transform.position = startCameraPosition;
 
 	}

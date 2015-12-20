@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class PuzzlePlanet : MonoBehaviour {
-	private float moveDistance = 3.12f;
+	private float moveDistance = 3.1f;
 	//3.0995
 	private GameObject RoletPlanet1, RoletPlanet2, RoletPlanet3;
-	private float indexNumber1 = 1, indexNumber2 = 7,indexNumber3 = 3;
+	private float indexNumber1 = 1, indexNumber2 = 1,indexNumber3 = 1;
 	private Vector3 pos1, pos2, pos3;
 	private float pos1Y, pos2Y, pos3Y;
 	public bool solvedPlanet = false;
@@ -31,22 +31,26 @@ public class PuzzlePlanet : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit)) {
 				if (hit.transform == GameObject.Find("UpPlanet1").transform) {
-					if (indexNumber1 > 1) {
+					pos1Y -= moveDistance;
+					indexNumber1 -= 1;
+					/**if (indexNumber1 > 1) {
 						pos1Y -= moveDistance;
 						indexNumber1 -= 1;
 					} else {
 						pos1Y += 7 * moveDistance;
 						indexNumber1 = 8;
-					}
+					}*/
 					
 				} else if (hit.transform == GameObject.Find("DownPlanet1").transform) {
-					if (indexNumber1 <= 7) {
+					pos1Y += moveDistance;
+					indexNumber1 += 1;
+					/**if (indexNumber1 <= 7) {
 						pos1Y += moveDistance;
 						indexNumber1 += 1;
 					} else {
 						pos1Y -= 7 * moveDistance;
 						indexNumber1 = 1;
-					}
+					}*/
 				} else if (hit.transform == GameObject.Find("UpPlanet2").transform) {
 					if (indexNumber2 > 1) {
 						pos2Y -= moveDistance;
