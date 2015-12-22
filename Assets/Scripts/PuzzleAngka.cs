@@ -7,7 +7,8 @@ public class PuzzleAngka : MonoBehaviour {
 	private int indexNumber1 = 0, indexNumber2 = 0,indexNumber3 = 0, indexNumber4 = 0;
 	private Vector3 pos1, pos2, pos3, pos4;
 	private float pos1Y, pos2Y, pos3Y, pos4Y;
-	private bool solvedAngka = false;
+	public static bool solvedAngka = false;
+	private bool solved = false;
 	private float[] SimPos = new float[11] {-11.34f,-9.12f,-6.53f,-4.05f,-1.75f,0.73f,3.09f,5.68f,8.01f,10.26f,12.69f};
 	
 	// Use this for initialization
@@ -28,7 +29,7 @@ public class PuzzleAngka : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0) && !solvedAngka) {
+		if (Input.GetMouseButtonDown (0) && !solved) {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit)) {
@@ -100,8 +101,9 @@ public class PuzzleAngka : MonoBehaviour {
 			}
 			//misal passwordnya 0
 		}
-		if ( (indexNumber1 == 1) && (indexNumber2 == 10) && (indexNumber3 == 4) && (indexNumber4 == 5) ) {
-			solvedAngka = true;
+		if ( (indexNumber1 == 5) && (indexNumber2 == 9) && (indexNumber3 == 2) && (indexNumber4 == 0 || indexNumber4 == 10)  ) {
+			solved = true;
+			Wait();
 			//pindahScene();
 		}
 		// Moving numbers
@@ -115,19 +117,26 @@ public class PuzzleAngka : MonoBehaviour {
 		RoletAngka4.transform.localPosition = pos4;
 	}
 	
-	void pindahScene() {
+	void Wait() {
 		//animasi dll bisa ditambahin disini
 		
 		// 1 itu scene menu.unity, liat di build setting
+		StartCoroutine (StartWait());
 		
-		StartCoroutine (StartPindah());
 	}
 	
+	IEnumerator StartWait(){
+		
+		yield return new WaitForSeconds(2F);
+		Camera.main.orthographicSize = Mathf.Lerp (Camera.main.orthographicSize, 5f, Time.deltaTime * 0.5f);
+		StartCoroutine (StartPindah ());
+	}
+
 	IEnumerator StartPindah(){
 		
-		yield return new WaitForSeconds(5F);
-		Application.LoadLevel (0);
-		
+		yield return new WaitForSeconds(3F);
+		solvedAngka = true;
+		Application.LoadLevel (1);
 	}
 }
 

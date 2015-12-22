@@ -58,6 +58,9 @@
      <Compile Include="Assets\Scripts\PuzzleAngka.cs" />
      <Compile Include="Assets\Scripts\PuzzleHuruf.cs" />
      <Compile Include="Assets\Scripts\PuzzlePlanet.cs" />
+     <Compile Include="Assets\Scripts\StatusCermin.cs" />
+     <Compile Include="Assets\Scripts\StatusHuruf.cs" />
+     <Compile Include="Assets\Scripts\StatusPlanet.cs" />
      <Compile Include="Assets\Scripts\TouchCameraControl.cs" />
      <Compile Include="Assets\Scripts\TouchCameraControlCopy.cs" />
      <Compile Include="Assets\Scripts\TouchCameraControlCopy1.cs" />
@@ -65,17 +68,11 @@
      <Compile Include="Assets\Start\Scripts\Splash.cs" />
      <None Include="Assets\Menu\Men u.txt" />
      <None Include="Assets\Menu\Fonts\OpenSans\License!.txt" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>E:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

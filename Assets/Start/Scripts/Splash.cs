@@ -7,7 +7,7 @@ public class Splash : MonoBehaviour {
 	public float setTime = 3.0f;    //Duration before loading next level
 	public float dimTime = 2.0f;  //Duration Before Staring to Fade or Dim Lights
 	public Light dimLight;   //Main Light Source to Dim
-	public float zoomSpeed = 0.2f;   //Speed at which camera zooms in
+	public float zoomSpeed = 0.1f;   //Speed at which camera zooms in
 	Camera c;
 	float timer;     // Use this for initialization
 	void Start () {
@@ -19,8 +19,9 @@ public class Splash : MonoBehaviour {
 	void Update () {
 		timer += Time.deltaTime; //Adds Time.deltaTime to timer each update
 		c.fieldOfView -= zoomSpeed; //Zooms in Camera
+		//dimLight.intensity = Mathf.Clamp(dimLight.intensity - zoomSpeed * Time.deltaTime, 0, 1);
 		if (timer > dimTime && timer < setTime) {
-			dimLight.intensity -= zoomSpeed; //Dims Lights
+				dimLight.intensity -= zoomSpeed; //Dims Lights
 		} else if (timer > setTime) {
 			Application.LoadLevel (level); //Loads Level at index
 		}

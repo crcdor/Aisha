@@ -7,7 +7,6 @@ public class PuzzleHuruf : MonoBehaviour {
 	private int indexNumber1 = 0, indexNumber2 = 9,indexNumber3 = 2, indexNumber4 = 0;
 	private Vector3 pos1, pos2, pos3, pos4;
 	private float pos1X, pos2X, pos3X, pos4X;
-	private bool solvedHuruf = false;
 	private float[] SimPos = new float[11] {-8.2f,-6.31f,-4.61f,-2.78f,-1.02f,0.74f,2.44f,4.2f,5.83f,7.59f,9.22f};
 
 	// Use this for initialization
@@ -29,7 +28,7 @@ public class PuzzleHuruf : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0) && !solvedHuruf) {
+		if (Input.GetMouseButtonDown (0) && !StatusHuruf.SolvedHuruf) {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit)) {
@@ -50,7 +49,7 @@ public class PuzzleHuruf : MonoBehaviour {
 					}
 					pos2X = SimPos[indexNumber2];					
 				} else if (hit.transform == GameObject.Find("LeftHuruf3").transform) {
-					if (indexNumber3 < 9) 
+					if (indexNumber3 <= 9) 
 						indexNumber3 += 1;
 					else {
 						pos3 = new Vector3 (-8.2f, 3.61f, 2f);
@@ -69,8 +68,8 @@ public class PuzzleHuruf : MonoBehaviour {
 			}
 			//misal passwordnya 0
 		}
-		if ( (indexNumber1 == 1) && (indexNumber2 == 0) && (indexNumber3 == 4) && (indexNumber4 == 5) ) {
-			solvedHuruf = true;
+		if ( (indexNumber1 == 4)  && (indexNumber2 == 7) && (indexNumber3 == 5) && (indexNumber4 == 3) ) {
+			Wait();
 		}
 		// Moving numbers
 		pos1.x = Mathf.Lerp (pos1.x, pos1X, Time.deltaTime * 10f);
@@ -93,7 +92,8 @@ public class PuzzleHuruf : MonoBehaviour {
 	
 	IEnumerator StartWait(){
 		
-		yield return new WaitForSeconds(2F);
+		yield return new WaitForSeconds(1F);
+		StatusHuruf.SolvedHuruf = true;
 				
 	}
 }
